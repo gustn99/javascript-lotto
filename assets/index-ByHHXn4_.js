@@ -322,7 +322,7 @@ const LottoItem = {
     const lottoItemContainer = document.createElement("li");
     const lottoTicketIcon = document.createElement("img");
     const lottoNumbersContainer = document.createElement("div");
-    lottoTicketIcon.src = "/ticket.png";
+    lottoTicketIcon.src = `./ticket.png`;
     lottoTicketIcon.alt = "";
     lottoNumbersContainer.innerText = lotto.parseNumbers().join(", ");
     lottoItemContainer.appendChild(lottoTicketIcon);
@@ -560,7 +560,7 @@ const Modal = {
     modalContainer.id = "modal-container";
     closeButton.classList.add("close-button");
     closeButton.addEventListener("click", this.handleClose);
-    closeButtonIcon.src = "/close.svg";
+    closeButtonIcon.src = "./close.svg";
     closeButtonIcon.alt = "닫기";
     closeButton.appendChild(closeButtonIcon);
     modalContainer.appendChild(closeButton);
