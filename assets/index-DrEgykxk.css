@@ -1,0 +1,369 @@
+/* 1. 박스 모델을 border-box로 고정 (패딩이 너비에 포함되도록) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. 브라우저 기본 마진, 패딩 제거 */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, button, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. 리스트 스타일 제거 */
+ul, ol {
+  list-style: none;
+}
+
+/* 4. 본문 기본 설정 */
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased; /* 글자를 더 매끄럽게 */
+  word-break: keep-all; /* 한글 줄바꿈을 단어 단위로 */
+}
+
+/* 5. 폼 요소 스타일 통일 (매우 중요!) */
+input, button, textarea, select {
+  font: inherit; /* 폰트 상속 */
+  color: inherit; /* 글자색 상속 */
+  appearance: none; /* 브라우저 기본 UI 제거 */
+  border: none;
+  background: transparent;
+  outline: none; /* 포커스 라인은 필요 시 별도 작업 */
+}
+
+/* 6. 이미지 및 미디어 최적화 */
+img, picture, video, canvas, svg {
+  display: block; /* 하단 미세 공백 제거 */
+  max-width: 100%; /* 부모 밖으로 나가지 않게 */
+  height: auto;
+}
+
+/* 7. 링크 초기화 */
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* 8. 버튼 포인터 설정 */
+button {
+  cursor: pointer;
+}
+:root {
+  --color-lotto-primary: #4E5BA6;
+  --color-lotto-grayscale-5: #000000;
+  --color-lotto-grayscale-4: #8B8B8B;
+  --color-lotto-grayscale-3: #B4B4B4;
+  --color-lotto-grayscale-2: #FCFCFD;
+  --color-lotto-grayscale-1: #FFFFFF;
+  --color-lotto-negative: #E30800
+}
+
+body {
+  color: var(--color-lotto-grayscale-5);
+  background-color: var(--color-lotto-grayscale-2);
+
+  /* default - text lotto body */
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+
+  /* text lotto caption */
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  vertical-align: middle;
+}
+
+button:disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+input {
+  width: auto;
+  height: 36px;
+  padding: 0 8px;
+  border: 1px solid var(--color-lotto-grayscale-3);
+  border-radius: 4px;
+
+  /* text lotto body */
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+input::placeholder {
+  color: var(--color-lotto-grayscale-4);
+
+  /* text lotto placeholder */
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  vertical-align: bottom;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input.invalid {
+  border-color: var(--color-lotto-negative);
+}
+
+.text-lotto-title {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+.text-lotto-subtitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.text-lotto-body {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.text-lotto-placeholder {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  vertical-align: bottom;
+}
+
+.text-lotto-caption {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  vertical-align: middle;
+}
+
+.button-primary {
+  width: auto;
+  height: 36px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  background-color: var(--color-lotto-primary);
+  color: var(--color-lotto-grayscale-1);
+}
+
+.error-message {
+  margin-top: 4px;
+  color: var(--color-lotto-negative);
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+.lotto-header {
+  position: sticky;
+  padding: 14px 130px;
+  background-color: var(--color-lotto-primary);
+  color: var(--color-lotto-grayscale-1)
+}
+
+@media (max-width: 640px) {
+  .lotto-header {
+    padding: 14px 24px;
+  }
+}
+.lotto-game-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 414px;
+  aspect-ratio: 14/25;
+  margin: 84px auto;
+  padding: 40px 16px 36px 16px;
+  border: 1px solid #00000012;
+  border-radius: 4px;
+  background-color: var(--color-lotto-grayscale-1);
+}
+
+.lotto-game-card header {
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .lotto-game-card {
+    width: auto;
+    margin: 12px 24px 40px 24px;
+  }
+}
+.purchase-amount-input-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.purchase-amount-input-wrapper input {
+  width: 100%;
+}
+.lotto-info-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 285px;
+  overflow-y: scroll;
+  margin-top: 8px
+}
+.lotto-info-container li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.winning-lotto-and-bonus-number-form {
+  position: absolute;
+  bottom: 36px;
+  left: 16px;
+  right: 16px;
+  padding-top: 10px;
+  background-color: var(--color-lotto-grayscale-1);
+}
+
+.winning-numbers-and-bonus-number-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.winning-numbers-and-bonus-number-wrapper input {
+  width: 34px;
+  text-align: center;
+}
+
+.winning-numbers-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bonus-number-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: end;
+}
+
+.winning-numbers-input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.winning-numbers-input-wrapper.invalid input {
+  border-color: var(--color-lotto-negative);
+}
+
+.bonus-number-input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.result-check-button {
+  width: 100%;
+  margin-top: 24px;
+}
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--color-lotto-grayscale-5), transparent 50%);
+}
+
+.modal-wrapper > div {
+  position: relative;
+  border-radius: 4px;
+  background-color: var(--color-lotto-grayscale-1);
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 16px 16px 0 0;
+}
+.lotto-ranks-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.lotto-ranks-table caption {
+  margin-bottom: 32px;
+}
+
+.lotto-ranks-table th,
+.lotto-ranks-table td {
+  padding: 8px 6px;
+  text-align: center;
+}
+
+.lotto-ranks-table th:nth-child(2),
+.lotto-ranks-table td:nth-child(2) {
+  padding: 8px 26px;
+}
+
+.lotto-ranks-table th {
+  border-block: 1px solid #00000012;
+}
+
+.lotto-ranks-table td {
+  border-bottom: 1px solid #00000012;
+}
+.return-rate {
+  margin: 32px 0;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+.lotto-footer {
+  margin-top: auto;
+  padding: 28px 0 26px 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-lotto-primary), transparent 80%);
+  color: var(--color-lotto-primary);
+  text-align: center;
+}
+.lotto-result-modal-content {
+  padding: 40px 8px 32px 16px;
+}
+
+.lotto-result-modal-content button {
+  width: 100%;
+}
